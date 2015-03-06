@@ -1,4 +1,5 @@
-maintainer       "Gábor Vészi"
+name "password"
+maintainer       "Gabor Veszi"
 maintainer_email "veszig@done.hu"
 license          "Apache 2.0"
 description      "Helps to manage passwords"

@@ -1,4 +1,6 @@
-maintainer       "Gábor Vészi"
+name "chef"
+name "chef"
+maintainer       "Gabor Veszi"
 maintainer_email "veszig@done.hu"
 license          "Apache 2.0"
 description      "Installs and configures Chef Client and Server"

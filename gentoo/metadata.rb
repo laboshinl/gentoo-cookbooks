@@ -1,4 +1,5 @@
-maintainer       "Gábor Vészi"
+name "gentoo"
+maintainer       "Gabor Veszi"
 maintainer_email "veszig@done.hu"
 license          "Apache 2.0"
 description      "Sets up gentoo specific config files and directories"
