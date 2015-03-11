@@ -1,6 +1,6 @@
 include_recipe "gentoo::portage"
 
-gentoo_package_keywords "=net-misc/rabbitmq-server-1.8.0"
+gentoo_package_keywords "=net-misc/rabbitmq-server-3.3.4"
 
 package "net-misc/rabbitmq-server" do
   action :upgrade
@@ -19,4 +19,12 @@ end
 
 if node.run_list?("recipe[nagios::nrpe]")
   nrpe_command "rabbitmq"
+end
+
+if node.run_list?("recipe[iptables]")
+  ips = [node[:rabbitmq][:client_ips]].flatten.select { |i| i != "127.0.0.1" }
+  iptables_rule "rabbitmq" do
+    variables(:ips => ips)
+    action !ips.empty? ? :create : :delete
+  end
 end

@@ -2,7 +2,7 @@ include_recipe "password"
 include_recipe "gentoo::portage"
 
 unless node[:gentoo][:use_flags].include?("mysql")
-  node[:gentoo][:use_flags] << "mysql"
+  node.default[:gentoo][:use_flags] << "mysql"
   generate_make_conf "added mysql USE flag"
 end
 
@@ -19,7 +19,7 @@ end
 # mysql_gem_package.run_action(:upgrade)
 # Gem.clear_paths
 
-gentoo_package "dev-ruby/mysql-ruby" do
+gentoo_package "dev-ruby/mysql2" do
   action :upgrade
 end
 

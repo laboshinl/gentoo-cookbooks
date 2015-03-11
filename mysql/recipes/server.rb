@@ -5,7 +5,7 @@ gentoo_package_use "dev-db/mysql latin1" do
   action node[:mysql][:encoding] == "latin1" ? :create : :delete
 end
 
-package "dev-db/mysql" do
+gentoo_package "dev-db/mysql" do
   action :upgrade
 end
 
@@ -34,7 +34,7 @@ end
 service "mysql" do
   supports :status => true, :restart => true
   action [ :enable, :start ]
-  subscribes :restart, resources(:package => "dev-db/mysql", :template => "/etc/mysql/my.cnf")
+  subscribes :restart, resources(:gentoo_package => "dev-db/mysql", :template => "/etc/mysql/my.cnf")
 end
 
 mysql_database "test" do

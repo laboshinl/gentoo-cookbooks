@@ -136,7 +136,7 @@ module Opscode
         end
 
         query_command = [eix, "--nocolor", "--pure-packages", "--stable", "--exact",
-          '--format "<category>\t<name>\t<installedversions:VERSION>\t<bestversion:VERSION>\n"',
+          '--format "<category>\t<name>\t<installedversions:IVERSIONS_COMPACT>\t<bestversion:AVERSIONS_COMPACT>\n"',
           package_name.count("/") > 0 ? "--category-name" : "--name", package_name].join(" ")
 
         eix_out = eix_stderr = nil
