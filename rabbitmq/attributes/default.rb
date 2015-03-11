@@ -1,0 +1,1 @@
+default[:rabbitmq][:client_ips] = %w(127.0.0.1)
